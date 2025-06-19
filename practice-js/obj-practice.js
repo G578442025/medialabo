@@ -16,7 +16,7 @@ let gakka = [
 
 //////////////// ここから下にプログラムを書きたそう!
 
-for (let id of campus.buildingID) {
+for (let id of campus.buildingD) {
   console.log(id);
 }
 
