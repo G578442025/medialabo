@@ -16,3 +16,11 @@ let gakka = [
 
 //////////////// ここから下にプログラムを書きたそう!
 
+for (let id of campus.buildingID) {
+  console.log(id);
+}
+
+// 学科名（日本語）の表示
+for (let g of gakka) {
+  console.log(g.name);
+}
