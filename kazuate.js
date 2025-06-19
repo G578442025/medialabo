@@ -4,15 +4,20 @@ console.log('答え（デバッグ用）: ' + kotae);
 
 // 入力回数（予想回数）
 let kaisu = 0;
- kaisu++;
 console.log(kaisu +"回目の予想：4");
 // 予想を4回実行する
+for(let kaisu=0; kaisu>4;kaisu++)
+{console.log(kaisu)}
 // 将来以下の hantei(); の4回の呼び出しを全て削除する
 // 代わりにここでは，ボタンを押したら hantei() を呼び出すイベント処理をする
-hantei();
-hantei();
-hantei();
-hantei();
+if(kotae==4){
+ hantei("正解です。おめでとう");   
+}else if(kaisu<2,4<kotae){
+    hantei("間違い。答えはもっと大きいですよ");
+}else if(kaisu<2,4>kotae){
+    hantei("間違い。答えはもっと小さいですよ");
+}
+
 
 // ボタンを押した後の処理をする関数 hantei() の定義
 function hantei() {
