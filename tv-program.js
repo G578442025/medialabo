@@ -22,6 +22,72 @@ function print(data) {
 
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
+  const oldResult = document.querySelector("#result");
+  if (oldResult) {
+    oldResult.remove();
+}
+
+const resultDiv = document.createElement("div");
+  resultDiv.id = "result";
+  resultDiv.classList.add("result-box"); // CSSが適用されるように
+
+  // 見出しを追加
+  const title = document.createElement("div");
+  title.className = "result-title";
+  title.textContent = "番組表の検索結果";
+  resultDiv.appendChild(title);
+
+  // table 要素を作成
+  const table = document.createElement("table");
+
+  // thead を作成
+  const thead = document.createElement("thead");
+  thead.innerHTML = `
+    <tr>
+      <th>開始時刻</th>
+      <th>終了時刻</th>
+      <th>チャンネル</th>
+      <th>タイトル</th>
+      <th>出演者</th>
+    </tr>
+  `;
+  table.appendChild(thead);
+
+  // tbody を作成
+  const tbody = document.createElement("tbody");
+
+  const programs = data.list.g1;
+  programs.forEach(program => {
+    const tr = document.createElement("tr");
+
+    const tdStart = document.createElement("td");
+    tdStart.textContent = program.start_time;
+    tr.appendChild(tdStart);
+
+    const tdEnd = document.createElement("td");
+    tdEnd.textContent = program.end_time;
+    tr.appendChild(tdEnd);
+
+    const tdChannel = document.createElement("td");
+    tdChannel.textContent = program.service.name;
+    tr.appendChild(tdChannel);
+
+    const tdTitle = document.createElement("td");
+    tdTitle.textContent = program.title;
+    tr.appendChild(tdTitle);
+
+    const tdAct = document.createElement("td");
+    tdAct.textContent = program.act || "記載なし";
+    tr.appendChild(tdAct);
+
+    tbody.appendChild(tr);
+  });
+
+  table.appendChild(tbody);
+  resultDiv.appendChild(table);
+
+  // body の末尾に追加
+  document.body.appendChild(resultDiv);
 }
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
 

@@ -15,15 +15,17 @@ let gakka = [
 ];
 
 //////////////// ここから下にプログラムを書きたそう!
-let shown = false; // ← フラグを定義
+let shown = false; // 一度だけ表示するためのフラグ
 
+// ボタンにイベントリスナーを登録
 document.getElementById("show").addEventListener("click", show);
 
 function show() {
-  if (shown) return; // すでに表示していたら何もしない
-  shown = true;      // 一度だけ表示するようにフラグをセット
 
-  // 住所の表示
+  if (shown) return;
+  shown = true;
+
+
   const p = document.createElement("p");
   p.textContent = campus.address;
   const h2Address = document.querySelector("h2");
@@ -36,6 +38,7 @@ function show() {
     li.textContent = dept.name;
     ul.appendChild(li);
   }
-  const h2Gakka = document.querySelectorAll("h2")[1];
-  h2Gakka.insertAdjacentElement("afterend", ul);
+
+  const h2List = document.querySelectorAll("h2")[1];
+  h2List.insertAdjacentElement("afterend", ul);
 }
