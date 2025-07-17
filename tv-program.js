@@ -1,14 +1,28 @@
 
 // 課題3-2 のプログラムはこの関数の中に記述すること
 function print(data) {
+  console.log(data);
 
+  // 番組リストだけ出力（g1 = NHK総合1）
+  const programs = data.list.g1;
+  console.log(programs);
+
+  // 各番組の情報を1件ずつ表示
+  programs.forEach(program => {
+    console.log('タイトル:', program.title);
+    console.log('開始時刻:', program.start_time);
+    console.log('終了時刻:', program.end_time);
+    console.log('チャンネル:', program.service.name);
+    console.log('出演者:', program.act || '記載なし');
+    console.log('----------------------------');
+  });
 }
+
+
 
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
-
 }
-
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
 
 
