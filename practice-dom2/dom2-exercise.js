@@ -15,4 +15,27 @@ let gakka = [
 ];
 
 //////////////// ここから下にプログラムを書きたそう!
+let shown = false; // ← フラグを定義
 
+document.getElementById("show").addEventListener("click", show);
+
+function show() {
+  if (shown) return; // すでに表示していたら何もしない
+  shown = true;      // 一度だけ表示するようにフラグをセット
+
+  // 住所の表示
+  const p = document.createElement("p");
+  p.textContent = campus.address;
+  const h2Address = document.querySelector("h2");
+  h2Address.insertAdjacentElement("afterend", p);
+
+  // 学科一覧の表示
+  const ul = document.createElement("ul");
+  for (const dept of gakka) {
+    const li = document.createElement("li");
+    li.textContent = dept.name;
+    ul.appendChild(li);
+  }
+  const h2Gakka = document.querySelectorAll("h2")[1];
+  h2Gakka.insertAdjacentElement("afterend", ul);
+}
