@@ -17,16 +17,16 @@ function hantei() {
 
   if (kaisu <= 3) {
     if (yoso === kotae) {
-      console.log("正解です。おめでとう！");
+      result.textContent = "正解です。おめでとう！";
     } else if (kaisu === 3) {
-      console.log("まちがい。残念でした。答えは " + kotae + " です。");
+      result.textContent = "まちがい。残念でした。答えは " + kotae + " です。";
     } else if (yoso > kotae) {
-      console.log("まちがい。答えはもっと小さいですよ。");
+      result.textContent = "まちがい。答えはもっと小さいですよ。";
     } else if (yoso < kotae) {
-      console.log("まちがい。答えはもっと大きいですよ。");
+      result.textContent = "まちがい。答えはもっと大きいですよ。";
     }
   } else {
-    console.log("答えは " + kotae + " でした。すでにゲームは終わっています。");
+    result.textContent = "答えは " + kotae + " でした。すでにゲームは終わっています。";
   }
 
   kaisu++;
